@@ -1,5 +1,5 @@
-<p id="notice"><%= notice %></p>
+<p id="notice" class="bg-success"><%= notice %></p>
 
 
-<%= link_to 'Edit', edit_list_task_path(@list, @task) %> |
-<%= link_to 'Back', list_tasks_path(@list) %>
+<%= link_to 'Edit', edit_list_task_path(@list, @task), :class=>"btn btn-primary btn-md active", :role=>"button" %> |
+<%= link_to 'Back', list_tasks_path(@list), :class=>"btn btn-primary btn-md active", :role=>"button" %>

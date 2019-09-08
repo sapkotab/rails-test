@@ -10,19 +10,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
+  <div class="form-group">
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :complete %><br />
+  <div>
+    <%= f.label :complete %>
     <%= f.check_box :complete %>
   </div>
-  <div class="field">
-    <%= f.label :due_date %><br />
+  <div class="form-group">
+    <%= f.label :due_date %>
     <%= f.date_select :due_date, as: :date, value: f.object.due_date %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class=>"btn btn-primary btn-md active" %>
   </div>
 <% end %>
+<br>

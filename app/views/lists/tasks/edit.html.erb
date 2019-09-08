@@ -1,6 +1,6 @@
-<h1>Editing Task</h1>
+<h1 class="text-primary">Editing Task</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', list_task_path(@list, @task) %> |
-<%= link_to 'Back', list_tasks_path(@list) %>
+<%= link_to 'Show', list_task_path(@list, @task), :class=>"btn btn-primary btn-md active", :role=>"button" %> |
+<%= link_to 'Back', list_tasks_path(@list), :class=>"btn btn-primary btn-md active", :role=>"button" %>

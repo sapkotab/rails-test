@@ -1,11 +1,11 @@
-<p id="notice"><%= notice %></p>
+<p id="notice" class="bg-success"><%= notice %></p>
 
-<p>
+<p class="text-primary" style="color:white;font-size:20px;">
   <b>Title:</b>
   <%= @list.title %>
 </p>
 
-<%= link_to 'Tasks', list_tasks_path(@list) %> |
+<%= link_to 'Tasks', list_tasks_path(@list), :class=>"btn btn-primary btn-md active", :role=>"button" %> |
 
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>
+<%= link_to 'Edit', edit_list_path(@list), :class=>"btn btn-primary btn-md active", :role=>"button" %> |
+<%= link_to 'Back', lists_path, :class=>"btn btn-primary btn-md active", :role=>"button" %>

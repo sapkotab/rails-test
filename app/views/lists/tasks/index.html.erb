@@ -1,27 +1,58 @@
-<h1>List Tasks</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Complete?</th>
-    <th>Due Date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <% @tasks.each do |task| %>
-    <tr>
+<h2 class="text-primary">List Tasks</h2>
+<table class="table table-bordered table-hover bg-info">
+  <thead>
+    <tr class="bg-primary" >
+      <th scope="col">Name</th>
+      <th scope="col">Complete?</th>
+      <th scope="col">Due Date</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasks.each do |task| %>
+    <tr style="color: #428bca">
       <td><%= task.name %></td>
       <td><%= task.complete %></td>
       <td><%= task.due_date %></td>
       <td><%= link_to 'Show', list_task_path(@list, task) %></td>
       <td><%= link_to 'Edit', edit_list_task_path(@list, task) %></td>
-      <td><%= link_to 'Destroy', list_task_path(@list, task), method: :delete, confirm: 'Are you sure?' %></td>
+      <td ><%= link_to 'Destroy', list_task_path(@list, task), method: :delete, confirm: 'Are you sure?' %></td>
     </tr>
-  <% end %>
+    <% end %>
+  </tbody>
 </table>
 
-<br />
+<br/>
 
-<%= link_to 'Back', lists_path %> |
-<%= link_to 'New Task', new_list_task_path(@list) %>
+<%= link_to 'Back', lists_path, :class=>"btn btn-primary btn-md active", :role=>"button" %> |
+<%= link_to 'New Task', new_list_task_path(@list), :class=>"btn btn-primary btn-md active", :role=>"button" %>
+
+<script>
+    $('th').click(function () {
+      var table = $(this).parents('table').eq(0)
+      var rows = table.find('tr:gt(0)').toArray().sort(comparer($(this).index()))
+      this.asc = !this.asc
+      if (!this.asc) {
+        rows = rows.reverse()
+      }
+      for (var i = 0; i < rows.length; i++) {
+        table.append(rows[i])
+      }
+    })
+
+    function comparer(index) {
+      return function (a, b) {
+        var valA = getCellValue(a, index),
+          valB = getCellValue(b, index)
+        return $.isNumeric(valA) && $.isNumeric(valB) ? valA - valB : valA.toString().localeCompare(valB)
+      }
+    }
+
+    function getCellValue(row, index) {
+      return $(row).children('td').eq(index).text()
+    }
+
+    $('th').css('cursor', 'pointer');
+  </script>
