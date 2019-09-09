@@ -75,6 +75,7 @@ GEM
     notiffany (0.1.3)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    pg (1.1.4)
     polyglot (0.3.5)
     pry (0.12.2)
       coderay (~> 1.1.0)
@@ -149,6 +150,7 @@ DEPENDENCIES
   guard-rails
   guard-rspec
   jquery-rails
+  pg
   rails (= 3.2.17)
   rspec-rails
   sqlite3 (~> 1.3.6)
